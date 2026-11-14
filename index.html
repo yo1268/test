@@ -136,26 +136,6 @@
       background-color: #F1F6FB;
     }
 
-    /* 球場紹介 */
-    .stadium-box {
-      background-color: #e8f0f8;
-      padding: 20px;
-      border-radius: 8px;
-      text-align: center;
-    }
-
-    .stadium-placeholder {
-      min-height: 180px;
-      background: linear-gradient(135deg, #c8d8e8, #8faec9);
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #003B70;
-      font-size: 22px;
-      font-weight: bold;
-    }
-
     /* ボタン */
     button {
       background-color: #003B70;
@@ -200,6 +180,10 @@
     footer a {
       color: white;
       margin: 0 8px;
+    }
+
+    footer a:hover {
+      color: #D6B15E;
     }
 
     /* スマートフォン対応 */
@@ -251,7 +235,7 @@
     <section class="team-info">
       <h2>中日ドラゴンズとは</h2>
 
-      <!-- 球団ロゴを使用する場合は、許可を得た画像を設定 -->
+      <!-- 球団ロゴ -->
       <img src="https://github.com/yo1268/test/blob/main/logo-dragons90th.jpg?raw=true"
            alt="中日ドラゴンズのロゴ"
            class="team-logo">
@@ -265,14 +249,12 @@
       <p>
         チームカラーは青を基調としており、
         ファンからは「ドラゴンズ」の愛称で親しまれています。
-        本拠地はバンテリンドーム ナゴヤで、
-        多くのファンが試合を観戦しています。
+        多くのファンが試合を観戦し、選手たちに声援を送っています。
       </p>
 
       <p>
         <strong>創設：</strong>1936年<br>
         <strong>所属：</strong>セントラル・リーグ<br>
-        <strong>本拠地：</strong>バンテリンドーム ナゴヤ<br>
         <strong>監督：</strong>井上一樹
       </p>
     </section>
@@ -341,22 +323,27 @@
           <th>年度</th>
           <th>順位</th>
         </tr>
+
         <tr>
           <td>2022年</td>
           <td>6位</td>
         </tr>
+
         <tr>
           <td>2023年</td>
           <td>6位</td>
         </tr>
+
         <tr>
           <td>2024年</td>
           <td>6位</td>
         </tr>
+
         <tr>
           <td>2025年</td>
           <td>確認して更新</td>
         </tr>
+
         <tr>
           <td>2026年</td>
           <td>シーズン終了後に更新</td>
@@ -389,28 +376,6 @@
       </p>
     </section>
 
-    <!-- 本拠地紹介 -->
-    <section>
-      <h2>本拠地・バンテリンドーム ナゴヤ</h2>
-
-      <div class="stadium-box">
-        <img src="https://github.com/yo1268/test/blob/main/dLzzh2EpZLyx4oit2bYp4FP3JWVXx1719eVq8dkEzzDsupBK7y8IaDfg_I7eYio8bmlyLukxRRHdGJ-G_5p8JMGyzypu387pTem1QkPXlHP6j4MIQ1tLNSCXn7yApYdQm0yHrt4ZbKY1gqtsiR8f6tUj-sBlu3wO_d-p5s-XP16ERMQkfa1w15902pokfQZ4.jpg?raw=true"
-          バンテリンドーム ナゴヤ
-        </div>
-
-        <p>
-          バンテリンドーム ナゴヤは、
-          中日ドラゴンズの本拠地となっている野球場です。
-          愛知県名古屋市にあり、多くのファンが訪れます。
-        </p>
-
-        <p>
-          試合だけでなく、さまざまなイベントも開催される
-          名古屋を代表する施設の一つです。
-        </p>
-      </div>
-    </section>
-
     <!-- JavaScript機能 -->
     <section>
       <h2>ドラゴンズを応援しよう！</h2>
@@ -422,8 +387,6 @@
       <button onclick="showMessage()">
         応援メッセージを見る
       </button>
-
-      
 
       <button onclick="showDate()">
         今日の日付を表示
@@ -437,17 +400,27 @@
   <!-- フッター -->
   <footer>
     <p>中日ドラゴンズ紹介サイト</p>
+
     <p>
-      <a href="https://dragons.jp/" target="_blank" rel="noopener noreferrer">
+      <a href="https://dragons.jp/"
+         target="_blank"
+         rel="noopener noreferrer">
         公式サイト
       </a>
-      <a href="https://www.instagram.com/chunichidragonsofficial/" target="_blank" rel="noopener noreferrer">
+
+      <a href="https://www.instagram.com/chunichidragonsofficial/"
+         target="_blank"
+         rel="noopener noreferrer">
         Instagram
       </a>
-      <a href="https://x.com/DragonsOfficial" target="_blank" rel="noopener noreferrer">
+
+      <a href="https://x.com/DragonsOfficial"
+         target="_blank"
+         rel="noopener noreferrer">
         X
       </a>
     </p>
+
     <p>© Dragons Fan Site</p>
   </footer>
 
@@ -456,21 +429,6 @@
     function showMessage() {
       document.getElementById("message").textContent =
         "頑張れ！中日ドラゴンズ！優勝を目指して応援しています！";
-    }
-
-    // 背景色を変更
-    function changeBackground() {
-      const colors = ["#F1F6FB", "#E5EEF8", "#FFF8E8"];
-
-      const currentColor = document.body.style.backgroundColor;
-
-      const currentIndex = colors.findIndex(
-        color => color === currentColor
-      );
-
-      const nextIndex = (currentIndex + 1) % colors.length;
-
-      document.body.style.backgroundColor = colors[nextIndex];
     }
 
     // 今日の日付を表示
