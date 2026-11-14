@@ -2,464 +2,492 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>中日ドラゴンズ応援サイト</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>中日ドラゴンズ紹介サイト</title>
 
-    <style>
-        /* ページ全体 */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <style>
+    /* ページ全体 */
+    * {
+      box-sizing: border-box;
+    }
 
-        body {
-            font-family: "Arial", "Noto Sans JP", sans-serif;
-            background-color: #F1F6FB;
-            color: #333;
-            line-height: 1.8;
-            padding-bottom: 150px;
-        }
+    body {
+      margin: 0;
+      padding: 0 0 85px;
+      font-family: "Yu Gothic", "Meiryo", sans-serif;
+      background-color: #F1F6FB;
+      color: #222;
+      line-height: 1.8;
+    }
 
-        /* ヘッダー */
-        header {
-            background-color: #003B70;
-            color: white;
-            text-align: center;
-            padding: 35px 20px;
-            border-bottom: 5px solid #D6B15E;
-        }
+    /* ヘッダー */
+    header {
+      background-color: #003B70;
+      color: white;
+      text-align: center;
+      padding: 30px 15px;
+      border-bottom: 5px solid #D6B15E;
+    }
 
-        header h1 {
-            font-size: 36px;
-            letter-spacing: 2px;
-        }
+    header h1 {
+      margin: 0;
+      font-size: 32px;
+      letter-spacing: 2px;
+    }
 
-        header p {
-            font-size: 15px;
-            color: #DCEBFA;
-            margin-top: 5px;
-        }
+    header p {
+      margin: 8px 0 0;
+      font-size: 15px;
+    }
 
-        /* メインコンテンツ */
-        main {
-            max-width: 1000px;
-            margin: 40px auto;
-            padding: 0 20px;
-        }
+    /* メイン */
+    main {
+      max-width: 1000px;
+      margin: 30px auto;
+      padding: 0 20px;
+    }
 
-        section {
-            background-color: white;
-            padding: 30px;
-            margin-bottom: 30px;
-            border-radius: 10px;
-            box-shadow: 0 3px 10px rgba(0, 59, 112, 0.1);
-        }
+    section {
+      background-color: white;
+      margin-bottom: 30px;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+    }
 
-        section h2 {
-            color: #003B70;
-            font-size: 26px;
-            margin-bottom: 20px;
-            border-bottom: 3px solid #D6B15E;
-            padding-bottom: 8px;
-        }
+    h2 {
+      color: #003B70;
+      border-left: 6px solid #D6B15E;
+      padding-left: 12px;
+      margin-top: 0;
+      font-size: 24px;
+    }
 
-        section p {
-            font-size: 16px;
-            margin-bottom: 10px;
-        }
+    h3 {
+      color: #003B70;
+    }
 
-        /* チーム情報 */
-        .team-info {
-            background-color: #EAF2FA;
-            padding: 20px;
-            border-radius: 8px;
-            margin-top: 20px;
-        }
+    /* チーム紹介 */
+    .team-info {
+      text-align: center;
+    }
 
-        .team-info p {
-            margin-bottom: 5px;
-        }
+    .team-logo {
+      width: 130px;
+      height: 130px;
+      object-fit: contain;
+      margin: 10px auto 20px;
+    }
 
-        /* 選手紹介 */
-        .player-container {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 15px;
-            margin-top: 20px;
-        }
+    .team-info p {
+      text-align: left;
+    }
 
-        .player-card {
-            background-color: #F1F6FB;
-            border-left: 5px solid #003B70;
-            padding: 18px;
-            border-radius: 8px;
-        }
+    /* 選手紹介 */
+    .player-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
 
-        .player-card h3 {
-            color: #003B70;
-            font-size: 20px;
-            margin-bottom: 8px;
-        }
+    .player-card {
+      background-color: #F1F6FB;
+      border: 1px solid #d6e0eb;
+      border-radius: 10px;
+      padding: 20px;
+      text-align: center;
+      transition: 0.3s;
+    }
 
-        .player-card p {
-            font-size: 14px;
-        }
+    .player-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 10px rgba(0, 59, 112, 0.15);
+    }
 
-        .player-card strong {
-            color: #B58B36;
-        }
+    .player-card h3 {
+      margin: 5px 0;
+    }
 
-        /* 順位表 */
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-            text-align: center;
-        }
+    .player-card p {
+      margin: 5px 0;
+      font-size: 14px;
+    }
 
-        th {
-            background-color: #003B70;
-            color: white;
-            padding: 12px;
-        }
+    /* 順位表 */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 15px;
+    }
 
-        td {
-            padding: 12px;
-            border-bottom: 1px solid #ddd;
-        }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 12px;
+      text-align: center;
+    }
 
-        tr:nth-child(even) {
-            background-color: #EAF2FA;
-        }
+    th {
+      background-color: #003B70;
+      color: white;
+    }
 
-        .highlight {
-            color: #003B70;
-            font-weight: bold;
-        }
+    tr:nth-child(even) {
+      background-color: #F1F6FB;
+    }
 
-        /* 優勝実績 */
-        .achievement {
-            background-color: #EAF2FA;
-            padding: 20px;
-            border-radius: 8px;
-            margin-top: 15px;
-        }
+    /* 球場紹介 */
+    .stadium-box {
+      background-color: #e8f0f8;
+      padding: 20px;
+      border-radius: 8px;
+      text-align: center;
+    }
 
-        .achievement h3 {
-            color: #003B70;
-            margin-bottom: 10px;
-        }
+    .stadium-placeholder {
+      min-height: 180px;
+      background: linear-gradient(135deg, #c8d8e8, #8faec9);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #003B70;
+      font-size: 22px;
+      font-weight: bold;
+    }
 
-        .achievement span {
-            color: #B58B36;
-            font-weight: bold;
-        }
+    /* ボタン */
+    button {
+      background-color: #003B70;
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+      margin: 8px;
+    }
 
-        /* 球場紹介 */
-        .stadium {
-            background-color: #F1F6FB;
-            padding: 20px;
-            border-radius: 8px;
-        }
+    button:hover {
+      background-color: #1766A5;
+    }
 
-        /* フッター */
-        footer {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            background-color: #003B70;
-            color: white;
-            text-align: center;
-            padding: 15px;
-            font-size: 14px;
-            border-top: 3px solid #D6B15E;
-        }
+    #message {
+      color: #003B70;
+      font-weight: bold;
+      margin-top: 10px;
+    }
 
-        .social-links {
-            margin: 5px 0;
-        }
+    /* フッター */
+    footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background-color: #003B70;
+      color: white;
+      text-align: center;
+      padding: 12px 10px;
+      border-top: 3px solid #D6B15E;
+      z-index: 10;
+    }
 
-        .social-links a {
-            color: #DCEBFA;
-            text-decoration: none;
-            margin: 0 10px;
-        }
+    footer p {
+      margin: 3px;
+      font-size: 13px;
+    }
 
-        .social-links a:hover {
-            color: #D6B15E;
-            text-decoration: underline;
-        }
+    footer a {
+      color: white;
+      margin: 0 8px;
+    }
 
-        .copyright {
-            font-size: 12px;
-            color: #DCEBFA;
-        }
+    /* スマートフォン対応 */
+    @media (max-width: 700px) {
+      header h1 {
+        font-size: 24px;
+      }
 
-        /* スマートフォン対応 */
-        @media (max-width: 600px) {
-            header h1 {
-                font-size: 26px;
-            }
+      .player-container {
+        grid-template-columns: repeat(2, 1fr);
+      }
 
-            section {
-                padding: 20px;
-            }
+      section {
+        padding: 18px;
+      }
 
-            section h2 {
-                font-size: 22px;
-            }
+      h2 {
+        font-size: 21px;
+      }
+    }
 
-            .player-container {
-                grid-template-columns: 1fr;
-            }
+    @media (max-width: 450px) {
+      .player-container {
+        grid-template-columns: 1fr;
+      }
 
-            table {
-                font-size: 13px;
-            }
+      table {
+        font-size: 13px;
+      }
 
-            th, td {
-                padding: 8px 4px;
-            }
-
-            footer {
-                font-size: 12px;
-                padding: 12px 5px;
-            }
-
-            .social-links a {
-                margin: 0 5px;
-            }
-        }
-    </style>
+      th, td {
+        padding: 8px 4px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-    <!-- ヘッダー -->
-    <header>
-        <h1>中日ドラゴンズ応援サイト</h1>
-        <p>ONE BLUE ～勝利を信じて応援しよう～</p>
-    </header>
+  <!-- ヘッダー -->
+  <header>
+    <h1>中日ドラゴンズ紹介サイト</h1>
+    <p>DRAGONS - 名古屋から頂点へ</p>
+  </header>
 
-    <!-- メインコンテンツ -->
-    <main>
+  <main>
 
-        <!-- チーム紹介 -->
-        <section>
-            <h2>中日ドラゴンズについて</h2>
+    <!-- チーム紹介 -->
+    <section class="team-info">
+      <h2>中日ドラゴンズとは</h2>
 
-            <p>
-                中日ドラゴンズは、愛知県名古屋市を本拠地とする
-                プロ野球チームです。
-                セントラル・リーグに所属し、1936年に創設されました。
-                1947年に中日ドラゴンズという球団名になり、
-                長い歴史と伝統を持つチームです。
-            </p>
+      <!-- 球団ロゴを使用する場合は、許可を得た画像を設定 -->
+      <img src="images/dragons-logo.png"
+           alt="中日ドラゴンズのロゴ"
+           class="team-logo">
 
-            <p>
-                チームカラーのブルーを象徴とし、
-                多くのファンに愛されています。
-                ファンと選手が一体となって戦う姿が魅力です。
-            </p>
+      <p>
+        中日ドラゴンズは、愛知県名古屋市を本拠地とする
+        プロ野球チームです。セントラル・リーグに所属しており、
+        1936年に創設された歴史ある球団です。
+      </p>
 
-            <div class="team-info">
-                <p><strong>球団名：</strong>中日ドラゴンズ</p>
-                <p><strong>所属：</strong>セントラル・リーグ</p>
-                <p><strong>本拠地：</strong>バンテリンドーム ナゴヤ</p>
-                <p><strong>創設：</strong>1936年</p>
-                <p><strong>監督：</strong>井上一樹</p>
-            </div>
-        </section>
+      <p>
+        チームカラーは青を基調としており、
+        ファンからは「ドラゴンズ」の愛称で親しまれています。
+        本拠地はバンテリンドーム ナゴヤで、
+        多くのファンが試合を観戦しています。
+      </p>
 
-        <!-- 注目選手 -->
-        <section>
-            <h2>注目選手紹介</h2>
+      <p>
+        <strong>創設：</strong>1936年<br>
+        <strong>所属：</strong>セントラル・リーグ<br>
+        <strong>本拠地：</strong>バンテリンドーム ナゴヤ<br>
+        <strong>監督：</strong>井上一樹
+      </p>
+    </section>
 
-            <p>
-                中日ドラゴンズには、打撃や投球など、
-                さまざまな面で活躍する選手がいます。
-                ここでは2026年シーズンの成績から注目選手を紹介します。
-            </p>
+    <!-- 注目選手 -->
+    <section>
+      <h2>注目選手紹介</h2>
 
-            <div class="player-container">
+      <p>
+        中日ドラゴンズには、打撃や投球など、
+        それぞれの分野で活躍する選手が多く所属しています。
+        ここでは注目選手を紹介します。
+      </p>
 
-                <div class="player-card">
-                    <h3>細川 成也</h3>
-                    <p><strong>ポジション：</strong>外野手</p>
-                    <p><strong>注目ポイント：</strong>長打力のある打撃</p>
-                    <p><strong>2026年：</strong>25本塁打・71打点</p>
-                </div>
+      <div class="player-container">
 
-                <div class="player-card">
-                    <h3>村松 開人</h3>
-                    <p><strong>ポジション：</strong>内野手</p>
-                    <p><strong>注目ポイント：</strong>安定した打撃と守備</p>
-                    <p><strong>2026年：</strong>打率.258・115安打</p>
-                </div>
-
-                <div class="player-card">
-                    <h3>柳 裕也</h3>
-                    <p><strong>ポジション：</strong>投手</p>
-                    <p><strong>注目ポイント：</strong>安定感のある投球</p>
-                    <p><strong>2026年：</strong>防御率2.34</p>
-                </div>
-
-                <div class="player-card">
-                    <h3>金丸 夢斗</h3>
-                    <p><strong>ポジション：</strong>投手</p>
-                    <p><strong>注目ポイント：</strong>三振を奪う投球</p>
-                    <p><strong>2026年：</strong>146奪三振</p>
-                </div>
-
-                <div class="player-card">
-                    <h3>松山 晋也</h3>
-                    <p><strong>ポジション：</strong>投手</p>
-                    <p><strong>注目ポイント：</strong>試合終盤を任される守護神</p>
-                    <p><strong>2026年：</strong>31セーブ</p>
-                </div>
-
-                <div class="player-card">
-                    <h3>大野 雄大</h3>
-                    <p><strong>ポジション：</strong>投手</p>
-                    <p><strong>注目ポイント：</strong>経験豊富な先発投手</p>
-                    <p><strong>2026年：</strong>10勝</p>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- 過去の順位 -->
-        <section>
-            <h2>過去のシーズン順位</h2>
-
-            <p>
-                近年の中日ドラゴンズのセ・リーグ順位を紹介します。
-            </p>
-
-            <table>
-                <tr>
-                    <th>年度</th>
-                    <th>順位</th>
-                    <th>勝利</th>
-                    <th>敗北</th>
-                </tr>
-
-                <tr>
-                    <td>2022年</td>
-                    <td>6位</td>
-                    <td>66</td>
-                    <td>75</td>
-                </tr>
-
-                <tr>
-                    <td>2023年</td>
-                    <td>6位</td>
-                    <td>56</td>
-                    <td>82</td>
-                </tr>
-
-                <tr>
-                    <td>2024年</td>
-                    <td>6位</td>
-                    <td>60</td>
-                    <td>75</td>
-                </tr>
-
-                <tr>
-                    <td>2025年</td>
-                    <td>4位</td>
-                    <td>63</td>
-                    <td>78</td>
-                </tr>
-
-                <tr>
-                    <td>2026年</td>
-                    <td class="highlight">6位</td>
-                    <td>60</td>
-                    <td>81</td>
-                </tr>
-            </table>
-
-            <p style="margin-top:15px; font-size:13px;">
-                ※2026年シーズン終了時点の情報です。
-            </p>
-        </section>
-
-        <!-- 優勝実績 -->
-        <section>
-            <h2>これまでの優勝実績</h2>
-
-            <p>
-                中日ドラゴンズは、これまで数々の
-                優勝を経験してきた歴史ある球団です。
-            </p>
-
-            <div class="achievement">
-                <h3>セ・リーグ優勝</h3>
-                <p><span>9回</span></p>
-                <p>
-                    1954年、1974年、1982年、1988年、
-                    1999年、2004年、2006年、2010年、2011年
-                </p>
-            </div>
-
-            <div class="achievement">
-                <h3>日本シリーズ優勝</h3>
-                <p><span>2回</span></p>
-                <p>1954年、2007年</p>
-            </div>
-        </section>
-
-        <!-- 本拠地紹介 -->
-        <section>
-            <h2>本拠地・バンテリンドーム ナゴヤ</h2>
-
-            <div class="stadium">
-                <p>
-                    バンテリンドーム ナゴヤは、
-                    中日ドラゴンズの本拠地球場です。
-                    愛知県名古屋市にあり、多くのファンが
-                    試合観戦に訪れます。
-                </p>
-
-                <p>
-                    球場での応援や迫力あるプレー、
-                    ファンと選手が一体となる雰囲気も魅力です。
-                </p>
-
-                <p>
-                    <a href="https://www.nagoya-dome.co.jp/"
-                       target="_blank" rel="noopener noreferrer">
-                        バンテリンドーム ナゴヤ公式サイトはこちら
-                    </a>
-                </p>
-            </div>
-        </section>
-
-    </main>
-
-    <!-- フッター -->
-    <footer>
-        <p>中日ドラゴンズ応援サイト</p>
-
-        <div class="social-links">
-            <a href="https://dragons.jp/"
-               target="_blank" rel="noopener noreferrer">公式サイト</a>
-
-            <a href="https://www.instagram.com/chunichidragonsofficial/"
-               target="_blank" rel="noopener noreferrer">Instagram</a>
-
-            <a href="https://x.com/DragonsOfficial"
-               target="_blank" rel="noopener noreferrer">X</a>
+        <div class="player-card">
+          <h3>細川 成也</h3>
+          <p>外野手</p>
+          <p>力強いバッティングが魅力の選手です。</p>
         </div>
 
-        <p class="copyright">
-            &copy; 2026 中日ドラゴンズ応援サイト
+        <div class="player-card">
+          <h3>村松 開人</h3>
+          <p>内野手</p>
+          <p>守備や走塁でもチームに貢献する選手です。</p>
+        </div>
+
+        <div class="player-card">
+          <h3>柳 裕也</h3>
+          <p>投手</p>
+          <p>多彩な投球で打者を抑える先発投手です。</p>
+        </div>
+
+        <div class="player-card">
+          <h3>金丸 夢斗</h3>
+          <p>投手</p>
+          <p>今後の活躍が期待される若手投手です。</p>
+        </div>
+
+        <div class="player-card">
+          <h3>松山 晋也</h3>
+          <p>投手</p>
+          <p>力強い投球が持ち味の投手です。</p>
+        </div>
+
+        <div class="player-card">
+          <h3>大野 雄大</h3>
+          <p>投手</p>
+          <p>豊富な経験を持つベテラン左腕です。</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 過去の順位 -->
+    <section>
+      <h2>近年のリーグ順位</h2>
+
+      <p>
+        近年の中日ドラゴンズのセ・リーグ順位を紹介します。
+      </p>
+
+      <table>
+        <tr>
+          <th>年度</th>
+          <th>順位</th>
+        </tr>
+        <tr>
+          <td>2022年</td>
+          <td>6位</td>
+        </tr>
+        <tr>
+          <td>2023年</td>
+          <td>6位</td>
+        </tr>
+        <tr>
+          <td>2024年</td>
+          <td>6位</td>
+        </tr>
+        <tr>
+          <td>2025年</td>
+          <td>確認して更新</td>
+        </tr>
+        <tr>
+          <td>2026年</td>
+          <td>シーズン終了後に更新</td>
+        </tr>
+      </table>
+
+      <p>
+        厳しいシーズンもありますが、チーム一丸となって
+        上位進出や優勝を目指しています。
+      </p>
+    </section>
+
+    <!-- 優勝実績 -->
+    <section>
+      <h2>これまでの優勝実績</h2>
+
+      <p>
+        中日ドラゴンズは、これまでにセントラル・リーグで
+        9回、日本シリーズで2回の優勝を経験しています。
+      </p>
+
+      <ul>
+        <li>セントラル・リーグ優勝：9回</li>
+        <li>日本シリーズ優勝：2回</li>
+      </ul>
+
+      <p>
+        長い歴史の中で多くの名選手が活躍し、
+        球団の歴史を築いてきました。
+      </p>
+    </section>
+
+    <!-- 本拠地紹介 -->
+    <section>
+      <h2>本拠地・バンテリンドーム ナゴヤ</h2>
+
+      <div class="stadium-box">
+        <div class="stadium-placeholder">
+          バンテリンドーム ナゴヤ
+        </div>
+
+        <p>
+          バンテリンドーム ナゴヤは、
+          中日ドラゴンズの本拠地となっている野球場です。
+          愛知県名古屋市にあり、多くのファンが訪れます。
         </p>
-    </footer>
+
+        <p>
+          試合だけでなく、さまざまなイベントも開催される
+          名古屋を代表する施設の一つです。
+        </p>
+      </div>
+    </section>
+
+    <!-- JavaScript機能 -->
+    <section>
+      <h2>ドラゴンズを応援しよう！</h2>
+
+      <p>
+        下のボタンを押すと、メッセージが表示されます。
+      </p>
+
+      <button onclick="showMessage()">
+        応援メッセージを見る
+      </button>
+
+      <button onclick="changeBackground()">
+        背景色を変更
+      </button>
+
+      <button onclick="showDate()">
+        今日の日付を表示
+      </button>
+
+      <p id="message"></p>
+    </section>
+
+  </main>
+
+  <!-- フッター -->
+  <footer>
+    <p>中日ドラゴンズ紹介サイト</p>
+    <p>
+      <a href="https://dragons.jp/" target="_blank" rel="noopener noreferrer">
+        公式サイト
+      </a>
+      <a href="https://www.instagram.com/chunichidragonsofficial/" target="_blank" rel="noopener noreferrer">
+        Instagram
+      </a>
+      <a href="https://x.com/DragonsOfficial" target="_blank" rel="noopener noreferrer">
+        X
+      </a>
+    </p>
+    <p>© Dragons Fan Site</p>
+  </footer>
+
+  <script>
+    // 応援メッセージを表示
+    function showMessage() {
+      document.getElementById("message").textContent =
+        "頑張れ！中日ドラゴンズ！優勝を目指して応援しています！";
+    }
+
+    // 背景色を変更
+    function changeBackground() {
+      const colors = ["#F1F6FB", "#E5EEF8", "#FFF8E8"];
+
+      const currentColor = document.body.style.backgroundColor;
+
+      const currentIndex = colors.findIndex(
+        color => color === currentColor
+      );
+
+      const nextIndex = (currentIndex + 1) % colors.length;
+
+      document.body.style.backgroundColor = colors[nextIndex];
+    }
+
+    // 今日の日付を表示
+    function showDate() {
+      const today = new Date();
+
+      const dateText =
+        today.getFullYear() + "年" +
+        (today.getMonth() + 1) + "月" +
+        today.getDate() + "日";
+
+      document.getElementById("message").textContent =
+        "今日は " + dateText + " です！";
+    }
+  </script>
 
 </body>
 </html>
