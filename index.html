@@ -136,28 +136,6 @@
       background-color: #F1F6FB;
     }
 
-    /* ボタン */
-    button {
-      background-color: #003B70;
-      color: white;
-      border: none;
-      padding: 12px 25px;
-      border-radius: 6px;
-      font-size: 16px;
-      cursor: pointer;
-      margin: 8px;
-    }
-
-    button:hover {
-      background-color: #1766A5;
-    }
-
-    #message {
-      color: #003B70;
-      font-weight: bold;
-      margin-top: 10px;
-    }
-
     /* フッター */
     footer {
       position: fixed;
@@ -255,7 +233,7 @@
       <p>
         <strong>創設：</strong>1936年<br>
         <strong>所属：</strong>セントラル・リーグ<br>
-        <strong>監督：</strong>井上一樹
+        <strong>監督：</strong>工藤公康
       </p>
     </section>
 
@@ -341,12 +319,12 @@
 
         <tr>
           <td>2025年</td>
-          <td>4位</td>
+          <td>確認して更新</td>
         </tr>
 
         <tr>
           <td>2026年</td>
-          <td>6位</td>
+          <td>シーズン終了後に更新</td>
         </tr>
       </table>
 
@@ -374,25 +352,6 @@
         長い歴史の中で多くの名選手が活躍し、
         球団の歴史を築いてきました。
       </p>
-    </section>
-
-    <!-- JavaScript機能 -->
-    <section>
-      <h2>ドラゴンズを応援しよう！</h2>
-
-      <p>
-        下のボタンを押すと、メッセージが表示されます。
-      </p>
-
-      <button onclick="showMessage()">
-        応援メッセージを見る
-      </button>
-
-      <button onclick="showDate()">
-        今日の日付を表示
-      </button>
-
-      <p id="message"></p>
     </section>
 
   </main>
@@ -423,27 +382,6 @@
 
     <p>© Dragons Fan Site</p>
   </footer>
-
-  <script>
-    // 応援メッセージを表示
-    function showMessage() {
-      document.getElementById("message").textContent =
-        "頑張れ！中日ドラゴンズ！優勝を目指して応援しています！";
-    }
-
-    // 今日の日付を表示
-    function showDate() {
-      const today = new Date();
-
-      const dateText =
-        today.getFullYear() + "年" +
-        (today.getMonth() + 1) + "月" +
-        today.getDate() + "日";
-
-      document.getElementById("message").textContent =
-        "今日は " + dateText + " です！";
-    }
-  </script>
 
 </body>
 </html>
